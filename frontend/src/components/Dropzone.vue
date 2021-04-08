@@ -6,50 +6,63 @@
         class="ma-2"
     >
       <v-sheet
-          id="dropzone"
+          id="dropzone_sheet"
           ref="dzone"
           tabindex="0"
           color="white"
           width="85%"
-          height="200"
           class="ma-2"
           elevation="5"
       >
-        <input
-            ref="upload"
-            id="fileUpload"
-            type="file"
-            accept="text/xml"
-            style="display:none"
-        />
-        <v-row justify="center" align="center" class="mt-10">
-          <v-icon
-              v-if="!dragover"
-              color="secondary darken-2"
-              size="75"
-          >mdi-cloud-upload-outline
-          </v-icon>
-          <v-icon
-              v-if="dragover"
-              color="secondary darken-2"
-              size="75"
-          >mdi-book-plus
-          </v-icon>
-        </v-row>
-        <v-row justify="center">
-          <span class="title">
-            Input SBOL File
-          </span>
-        </v-row>
+        <vue-dropzone
+            ref="sbol-input"
+            id="dropzone"
+            :options="dropzoneOptions"
+            v-on:vdropzone-file-added="droppedSbol"
+        >
+        </vue-dropzone>
       </v-sheet>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+
+export default {
+  name: 'app',
+  components: {
+    vueDropzone: vue2Dropzone
+  },
+  methods: {
+    droppedSbol(input_file) {
+      console.log(input_file)
+      console.log('Hello')
+      let gating_condition = true
+      // Validation from backend goes here.
+      if (gating_condition){
+        this.$router.replace('scoring')
+      }
+    }
+  },
+  data: function () {
+    return {
+      dropzoneOptions: {
+        url: 'https://httpbin.org/post',
+        thumbnailWidth: 150,
+        maxFilesize: 0.5,
+        headers: {"My-Awesome-Header": "header value"},
+        dictDefaultMessage: "<i class='fa fa-cloud-upload'></i>Input SBOL File"
+      }
+    }
+  }
+}
 </script>
 
 
 <style scoped>
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
 
 </style>

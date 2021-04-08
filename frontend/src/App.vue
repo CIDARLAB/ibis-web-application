@@ -1,30 +1,28 @@
 <template>
-  <v-app>
-    <Navbar/>
-    <v-main>
-      <Title/>
-      <Dropzone/>
-    </v-main>
-    <AdFooter/>
-  </v-app>
+  <div id="app">
+      <div class="content">
+        <transition name="fade">
+          <router-view/>
+        </transition>
+      </div>
+  </div>
 </template>
 
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
 <script>
-import Navbar from "@/components/Navbar";
-import Title from "@/components/Title";
-import Dropzone from "@/components/Dropzone";
-import AdFooter from "@/components/AdFooter";
 
 export default {
   name: 'App',
 
-  components: {
-    Navbar,
-    Dropzone,
-    AdFooter,
-    Title,
-  },
-  
+  components: {},
+
 
   data: () => ({
     //
