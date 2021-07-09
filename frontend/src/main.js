@@ -4,6 +4,10 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import InitialPage from "@/stages/InitialPage";
 import ScoringPage from "@/stages/ScoringPage";
+import AnalysisPage from "@/stages/AnalysisPage";
+import BuildPage from "@/stages/BuildPage";
+import CitationPage from "@/stages/CitationPage";
+import LogisticsPage from "@/stages/LogisticsPage";
 
 Vue.config.productionTip = false
 
@@ -19,6 +23,26 @@ const router = new Router({
             path: '/scoring',
             name: 'Ibis - Genetic Circuit Scoring Algorithm',
             component: ScoringPage,
+        },
+        {
+            path: '/analysis',
+            name: 'Ibis - Genetic Circuit Scoring Algorithm',
+            component: AnalysisPage,
+        },
+        {
+            path: '/build',
+            name: 'Ibis - Genetic Circuit Scoring Algorithm',
+            component: BuildPage,
+        },
+        {
+            path: '/citation',
+            name: 'Ibis - Genetic Circuit Scoring Algorithm',
+            component: CitationPage,
+        },
+        {
+            path: '/logistics',
+            name: 'Ibis - Genetic Circuit Scoring Algorithm',
+            component: LogisticsPage,
         },
     ]
 })

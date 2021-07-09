@@ -5,7 +5,7 @@
       <Navbar/>
       <v-col>
         <v-main>
-<span>Hello!</span>
+          <span>This is the Logistics Page</span>
         </v-main>
       </v-col>
     </v-row>
@@ -19,7 +19,7 @@ import AdFooter from "@/components/AdFooter";
 import Sidebar from "@/components/Sidebar";
 
 export default {
-  name: 'ScoringPage',
+  name: 'LogisticsPage',
 
   components: {
     Sidebar,
